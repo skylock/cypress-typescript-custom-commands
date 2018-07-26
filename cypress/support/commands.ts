@@ -24,6 +24,9 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
+/**
+ * Goes to google site
+ */
 function google() {
   return cy.visit('https://google.com');
 }
