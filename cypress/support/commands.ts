@@ -38,9 +38,17 @@ Cypress.Commands.add('navigate', (pageName) => {
   cy.visit(`/${pageName}`)
 })
 
-declare namespace Cypress {
-  interface Chainable<Subject> {
-    google: typeof google;
-    navigate(pageName: string): void
+// Must be declared global to be detected by typescript (allows import/export)
+// tslint:disable-next-line:no-namespace
+declare global {
+  namespace Cypress {
+    // tslint:disable-next-line:interface-name
+    interface Chainable<Subject> {
+      google: typeof google;
+      navigate(pageName: string): void
+    }
   }
 }
+
+// Convert this to a module instead of script (allows import/export)
+export {}
