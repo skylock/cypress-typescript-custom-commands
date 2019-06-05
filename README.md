@@ -1,7 +1,11 @@
-This repo demonstrates an issue with Cypress where the support files are not compiled by TypeScript.
+## What is this?
+This is a simple repo demonstrating how to setup typescript with cypress:
+ - 2 Example Commands are typed
+ - All tsconfig and other config files are setup
+ - Added script shortcuts as recommended from DOCS
 
-This is happening on Windows 10 with Node 8.11.3 and Yarn as a package manager.
+## How to test different dependencies?
+ - Upgrade dependencies in the package.json file 
+ - Install new dependencies with `yarn`
+ - Run `yarn cypress:open` and test
 
-I added a custom command and declared it in the Cypress namespace, TypeScript is happy with it and I get no error in Visual Studio Code. However at runtime I get an error saying my custom command is not defined.
-
-You can run `yarn cypress open` to see the issue.

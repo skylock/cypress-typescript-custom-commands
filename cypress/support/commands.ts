@@ -27,14 +27,20 @@
 /**
  * Goes to google site
  */
-function google() {
-  return cy.visit('https://google.com');
-}
+Cypress.Commands.add('google', () => cy.visit('https://google.com'))
 
-Cypress.Commands.add('google', google);
+/**
+ * Navigates to page with pageName
+ */
+Cypress.Commands.add('navigate', (pageName) => {
+  // Find navigation menu item
+  // Click on it
+  cy.visit(`/${pageName}`)
+})
 
 declare namespace Cypress {
   interface Chainable<Subject> {
     google: typeof google;
+    navigate(pageName: string): void
   }
 }
